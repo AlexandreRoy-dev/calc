@@ -5,13 +5,15 @@ submitButton.addEventListener("click", function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
 
   // Access form elements
-  let nombreHeures = document.getElementById("Nombreheures").value;
-  let nombreStaff = document.getElementById("Nombrestaff").value;
-  let coutHeure = document.getElementById("Costheure").value;
-  //let coutMateriaux = document.getElementById("Costmateriaux").value;
-  let contingence = document.getElementById("Contingence").value;
+  let nombreHeures = parseFloat(document.getElementById("Nombreheures").value);
+  let nombreStaff = parseFloat(document.getElementById("Nombrestaff").value);
+  let coutHeure = parseFloat(document.getElementById("Costheure").value);
+  let coutFixe = parseFloat(document.getElementById("Costfixe").value);
+  let contingence = parseFloat(document.getElementById("Contingence").value);
 
-  // Process the data (you can perform calculations or other actions here)
-  document.getElementById("Costprojet").innerHTML = ((nombreHeures*(nombreStaff*coutHeure))*((contingence/100)+1)+" $");
+  // Calculate the total cost
+  let totalCost = coutFixe + (nombreHeures * nombreStaff * coutHeure) * ((contingence / 100) + 1);
 
+  // Display the result
+  document.getElementById("Costprojet").innerHTML = totalCost + " $"; // Ensure proper addition
 });
