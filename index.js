@@ -12,7 +12,7 @@ submitButton.addEventListener("click", function(event) {
   let contingence = parseFloat(document.getElementById("Contingence").value);
 
   // Calculate the total cost
-  let totalCost = coutFixe + (nombreHeures * nombreStaff * coutHeure) * ((contingence / 100) + 1);
+ let totalCost = (coutFixe + (nombreHeures * nombreStaff * coutHeure)) * ((contingence / 100) + 1);
 
   // Display the result
   document.getElementById("Costprojet").innerHTML = totalCost + " $"; // Ensure proper addition
